@@ -118,7 +118,7 @@ module WebSocket
     end
 
     def text(message)
-      message = message.encode(UNICODE) unless message.encoding.name == UNICODE
+      message = message.force_encoding("UTF-8")
       frame(message, :text)
     end
 

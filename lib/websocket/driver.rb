@@ -200,7 +200,7 @@ module WebSocket
     def self.encode(string, encoding = nil)
       case string
         when Array then
-          string = string.pack('C*')
+          string = string.pack('C*').force_encoding("UTF-8")
           encoding ||= BINARY
         when String then
           encoding ||= UNICODE
